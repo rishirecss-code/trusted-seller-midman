@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnderCode - Trusted Middleman Directory Malaysia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --danger: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-900: #111827;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background-color: var(--gray-50);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            font-size: 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e40af 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            background: var(--white);
+            color: var(--primary);
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: var(--gray-100);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Section */
+        section {
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--gray-900);
+        }
+
+        section > p {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        /* Filters */
+        .filters {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 24px;
+            margin-bottom: 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--gray-700);
+            font-size: 14px;
+        }
+
+        .filter-group input,
+        .filter-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .filter-group input:focus,
+        .filter-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 16px rgba(0,0,0,0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--primary);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--gray-900);
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .star {
+            color: #fbbf24;
+        }
+
+        .card p {
+            color: var(--gray-600);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--gray-600);
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .services {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .service-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .card-btn {
+            width: 100%;
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .card-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            padding: 40px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            font-size: 28px;
+            color: var(--gray-600);
+            cursor: pointer;
+        }
+
+        .modal-header {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .modal-image {
+            flex-shrink: 0;
+        }
+
+        .modal-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .modal-info h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .modal-info .rating {
+            margin-bottom: 20px;
+        }
+
+        .modal-info p {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .contact-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-whatsapp {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            background: #059669;
+        }
+
+        .btn-telegram {
+            background: #0088cc;
+            color: var(--white);
+        }
+
+        .btn-telegram:hover {
+            background: #0077aa;
+        }
+
+        .btn-email {
+            background: var(--gray-600);
+            color: var(--white);
+        }
+
+        .btn-email:hover {
+            background: var(--gray-700);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .step {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: #dbeafe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 32px;
+        }
+
+        .step h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-info {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-item-icon {
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--gray-700);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .form-submit:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: #d1d5db;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--gray-600);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .modal-image img {
+                width: 100%;
+                height: 250px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-icon">U</div>
+                <span>UnderCode</span>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#midman">Middlemen</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Find Trusted Middlemen</h1>
+            <p>Your safe gateway for verified middleman services in Malaysia</p>
+            <div class="search-box">
+                <input type="text" id="heroSearch" placeholder="Search for middleman...">
+                <button onclick="searchHero()">Search</button>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="scrollTo('midman')">Browse All</button>
+                <button class="btn btn-secondary" onclick="scrollTo('how-it-works')">How It Works</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section id="featured">
+        <div class="container">
+            <h2>Featured Middlemen</h2>
+            <p>Our top-rated and most trusted middlemen in Malaysia</p>
+            <div class="grid" id="featuredGrid"></div>
+        </div>
+    </section>
+
+    <!-- Middlemen Directory -->
+    <section style="background: var(--white);" id="midman">
+        <div class="container">
+            <h2>Our Middlemen</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label>Search</label>
+                    <input type="text" id="searchInput" placeholder="Search by name or keyword..." onkeyup="filterMiddmen()">
+                </div>
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select id="categoryFilter" onchange="filterMiddmen()">
+                        <option value="">All Categories</option>
+                        <option value="Trading">Trading</option>
+                        <option value="E-Commerce">E-Commerce</option>
+                        <option value="Crypto">Crypto</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Investment">Investment</option>
+                        <option value="Remittance">Remittance</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Location</label>
+                    <select id="locationFilter" onchange="filterMiddmen()">
+                        <option value="">All Locations</option>
+                        <option value="Kuala Lumpur">Kuala Lumpur</option>
+                        <option value="Penang">Penang</option>
+                        <option value="Johor Bahru">Johor Bahru</option>
+                        <option value="Subang Jaya">Subang Jaya</option>
+                        <option value="Petaling Jaya">Petaling Jaya</option>
+                        <option value="Klang">Klang</option>
+                    </select>
+                </div>
+            </div>
+            <div id="resultCount" style="color: var(--gray-600); margin-bottom: 20px;"></div>
+            <div class="grid" id="middmenGrid"></div>
+            <div id="noResults" class="no-results" style="display: none;">
+                <p>No middlemen found. Try adjusting your filters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <p>Simple steps to find and work with a trusted middleman</p>
+            <div class="how-it-works">
+                <div class="step">
+                    <div class="step-icon">🔍</div>
+                    <h3>1. Search</h3>
+                    <p>Browse through our verified list of middlemen and find one that matches your needs.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">💬</div>
+                    <h3>2. Contact</h3>
+                    <p>Reach out via WhatsApp, Telegram, or Email to discuss your transaction details.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🛡️</div>
+                    <h3>3. Verify</h3>
+                    <p>Check their reviews, rating, and credentials to ensure you're dealing with a trusted expert.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">✅</div>
+                    <h3>4. Proceed</h3>
+                    <p>Complete your transaction with confidence knowing you have professional support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="background: var(--white);" id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Have a question? We'd love to hear from you.</p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:support@undercode.my">support@undercode.my</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📞</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +60 12-3456-7890
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div>
+                            <strong>Location</strong><br>
+                            Kuala Lumpur, Malaysia
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>UnderCode</h3>
+                    <p>Your trusted platform for finding verified middlemen in Malaysia.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#midman">Middlemen</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UnderCode. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-header">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h1 id="modalName"></h1>
+                    <div class="rating">
+                        <div class="stars" id="modalStars"></div>
+                        <span id="modalReviews"></span>
+                    </div>
+                    <p id="modalDescription"></p>
+                    <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+                    <p><strong>Category:</strong> <span id="modalCategory"></span></p>
+                </div>
+            </div>
+            <div>
+                <h3>Services</h3>
+                <div class="services" id="modalServices"></div>
+            </div>
+            <div>
+                <h3 style="margin-top: 24px; margin-bottom: 16px;">Contact Details</h3>
+                <p><strong>Phone:</strong> <span id="modalPhone"></span></p>
+                <p><strong>Email:</strong> <a id="modalEmail" href=""></a></p>
+                <div class="contact-buttons">
+                    <a class="btn btn-whatsapp" id="modalWhatsApp" target="_blank">WhatsApp</a>
+                    <a class="btn btn-telegram" id="modalTelegram" target="_blank">Telegram</a>
+                    <a class="btn btn-email" id="modalEmailBtn" href="">Email</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const middlemen = [
+            {
+                id: 1,
+                name: "Ahmad Hassan",
+                description: "Experienced middleman with 5+ years in online trading and escrow services.",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+                rating: 4.8,
+                reviews: 127,
+                location: "Kuala Lumpur",
+                category: "Trading",
+                services: ["Game Credits", "Account Trading", "PayPal", "Bank Transfer"],
+                phone: "+601234567890",
+                email: "ahmad@undercode.my",
+                whatsapp: "601234567890",
+                telegram: "ahmadhassan"
+            },
+            {
+                id: 2,
+                name: "Sarah Lim",
+                description: "Professional middleman specializing in E-commerce and digital product sales.",
+                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+                rating: 4.9,
+                reviews: 156,
+                location: "Penang",
+                category: "E-Commerce",
+                services: ["Shopify", "Lazada", "Shopee", "Payment Gateway"],
+                phone: "+601298765432",
+                email: "sarah@undercode.my",
+                whatsapp: "601298765432",
+                telegram: "sarahlim"
+            },
+            {
+                id: 3,
+                name: "Muhammad Rauf",
+                description: "Trusted middleman for cryptocurrency and digital asset transactions.",
+                image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+                rating: 4.7,
+                reviews: 89,
+                location: "Johor Bahru",
+                category: "Crypto",
+                services: ["Bitcoin", "Ethereum", "Binance", "Escrow"],
+                phone: "+601187654321",
+                email: "rauf@undercode.my",
+                whatsapp: "601187654321",
+                telegram: "muhammadrauwf"
+            },
+            {
+                id: 4,
+                name: "Jessica Wong",
+                description: "Expert in social media account trading and digital services.",
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+                rating: 4.6,
+                reviews: 112,
+                location: "Subang Jaya",
+                category: "Social Media",
+                services: ["Instagram", "TikTok", "YouTube", "Followers"],
+                phone: "+601156789012",
+                email: "jessica@undercode.my",
+                whatsapp: "601156789012",
+                telegram: "jessicawong"
+            },
+            {
+                id: 5,
+                name: "Rizky Pratama",
+                description: "Specialized in peer-to-peer lending and investment verification.",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+                rating: 4.5,
+                reviews: 78,
+                location: "Petaling Jaya",
+                category: "Investment",
+                services: ["P2P Lending", "Stock Trading", "Fund Transfer", "Documentation"],
+                phone: "+601223334444",
+                email: "rizky@undercode.my",
+                whatsapp: "601223334444",
+                telegram: "rizkypratama"
+            },
+            {
+                id: 6,
+                name: "Chen Mei",
+                description: "Expert in international payment and remittance services.",
+                image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+                rating: 4.9,
+                reviews: 203,
+                location: "Klang",
+                category: "Remittance",
+                services: ["Wire Transfer", "Foreign Exchange", "Swift", "International Bank"],
+                phone: "+601134567890",
+                email: "chen@undercode.my",
+                whatsapp: "601134567890",
+                telegram: "chenmei"
+            }
+        ];
+
+        function createStars(rating) {
+            let stars = '';
+            for (let i = 0; i < 5; i++) {
+                stars += i < Math.floor(rating) ? '⭐' : '☆';
+            }
+            return stars;
+        }
+
+        function renderCards(data, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = data.map(m => `
+                <div class="card" onclick="openModal(${m.id})">
+                    <div class="card-image">
+                        <img src="${m.image}" alt="${m.name}">
+                        <div class="card-badge">${m.category}</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>${m.name}</h3>
+                        <div class="rating">
+                            <div class="stars">${createStars(m.rating)}</div>
+                            <span>(${m.reviews})</span>
+                        </div>
+                        <p>${m.description}</p>
+                        <div class="location">📍 ${m.location}</div>
+                        <div class="services">
+                            ${m.services.slice(0, 2).map(s => `<span class="service-tag">${s}</span>`).join('')}
+                            ${m.services.length > 2 ? `<span class="service-tag">+${m.services.length - 2} more</span>` : ''}
+                        </div>
+                        <button class="card-btn">View Profile</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderFeatured() {
+            const featured = middlemen.sort((a, b) => b.rating - a.rating).slice(0, 3);
+            renderCards(featured, 'featuredGrid');
+        }
+
+        function filterMiddmen() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            const location = document.getElementById('locationFilter').value;
+
+            const filtered = middlemen.filter(m => {
+                const matchSearch = m.name.toLowerCase().includes(search) || m.description.toLowerCase().includes(search);
+                const matchCategory = !category || m.category === category;
+                const matchLocation = !location || m.location === location;
+                return matchSearch && matchCategory && matchLocation;
+            });
+
+            document.getElementById('resultCount').textContent = `Found ${filtered.length} middleman${filtered.length !== 1 ? 's' : ''}`;
+            document.getElementById('noResults').style.display = filtered.length === 0 ? 'block' : 'none';
+            renderCards(filtered, 'middmenGrid');
+        }
+
+        function openModal(id) {
+            const m = middlemen.find(x => x.id === id);
+            document.getElementById('modalImage').src = m.image;
+            document.getElementById('modalName').textContent = m.name;
+            document.getElementById('modalStars').textContent = createStars(m.rating);
+            document.getElementById('modalReviews').textContent = `(${m.reviews} reviews)`;
+            document.getElementById('modalDescription').textContent = m.description;
+            document.getElementById('modalLocation').textContent = m.location;
+            document.getElementById('modalCategory').textContent = m.category;
+            document.getElementById('modalPhone').textContent = m.phone;
+            document.getElementById('modalEmail').href = `mailto:${m.email}`;
+            document.getElementById('modalEmail').textContent = m.email;
+            document.getElementById('modalEmailBtn').href = `mailto:${m.email}`;
+            document.getElementById('modalWhatsApp').href = `https://wa.me/${m.whatsapp}`;
+            document.getElementById('modalTelegram').href = `https://t.me/${m.telegram}`;
+            document.getElementById('modalServices').innerHTML = m.services.map(s => `<span class="service-tag">${s}</span>`).join('');
+            document.getElementById('modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        function scrollTo(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function searchHero() {
+            const search = document.getElementById('heroSearch').value;
+            document.getElementById('searchInput').value = search;
+            filterMiddmen();
+            scrollTo('midman');
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you soon!');
+            e.target.reset();
+        }
+
+        document.addEventListener('click', (e) => {
+            if (e.target === document.getElementById('modal')) {
+                closeModal();
+            }
+        });
+
+        renderFeatured();
+        filterMiddmen();
+    </script>
+</body>
+</html>
